@@ -28,4 +28,4 @@ export default function Footer() {
       <div className="text-lg font-semibold text-gray-500 dark:text-gray-400 text-center">&copy; {new Date().getFullYear()} Nithin Kumar | Built with <span className="text-emerald-400">❤️</span></div>
     </footer>
   );
-} 
+} ``

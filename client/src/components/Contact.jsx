@@ -10,7 +10,8 @@ export default function Contact() {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      await axios.post('http://localhost:5001/api/contact', form);
+      // for local await axios.post('http://localhost:5001/api/contact', form);
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, form)
       setStatus('Message sent!');
       setForm({ name: '', email: '', message: '' });
     } catch (err) {
