@@ -131,7 +131,7 @@ export default function HeroSection() {
             View Projects
           </a>
           <a
-            href="/src/assets/Gurajala_Nithin_Kumar_Resume.pdf"
+            href="/Gurajala_Nithin_Kumar_Resume.pdf"
             className="px-8 py-3 rounded-full bg-white text-black dark:bg-black dark:text-white font-semibold text-lg shadow border border-gray-300 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-900 hover:scale-105 transition-all duration-200"
             download
           >
@@ -141,4 +141,4 @@ export default function HeroSection() {
       </motion.div>
     </section>
   );
-} 
+} ``
