@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import ThemeToggle from './components/ThemeToggle'
 import VideoEditing from './components/VideoEditing'
 import Certifications from './components/Certifications';
+
 import { useState, useEffect } from 'react'
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
@@ -28,6 +29,7 @@ export default function App() {
 
   return (
     <div className={theme === 'dark' ? 'min-h-screen w-full bg-gradient-to-br from-black via-slate-900 to-cyan-950 text-white scroll-smooth' : 'min-h-screen w-full bg-gradient-to-br from-white via-slate-100 to-cyan-100 text-gray-900 scroll-smooth'}>
+
       <Particles
         id="main-bg-particles"
         init={particlesInit}

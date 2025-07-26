@@ -52,6 +52,29 @@ export default function About() {
             </motion.div>
           ))}
         </div>
+        
+        {/* Let's Work Together Section */}
+        <motion.div 
+          className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200/50 dark:border-blue-800/50 backdrop-blur-sm w-full"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">Let's Work Together</h4>
+          <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed text-lg">
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. 
+            Feel free to reach out and let's create something amazing together!
+          </p>
+          <div className="flex justify-center mt-6">
+            <a
+              href="#contact"
+              className="px-6 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black font-semibold text-lg shadow hover:scale-105 transition-all duration-200 border border-transparent hover:border-gray-300 dark:hover:border-slate-700"
+            >
+              Get In Touch
+            </a>
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   );

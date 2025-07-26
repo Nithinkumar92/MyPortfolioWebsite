@@ -60,98 +60,46 @@ const techStack = [
 
 export default function Footer() {
   return (
-    <footer className="w-full py-12 px-2 sm:px-4 bg-white dark:bg-black border-t border-gray-200 dark:border-slate-800 transition-colors duration-500">
+    <footer className="w-full py-8 sm:py-12 px-2 sm:px-4 bg-white dark:bg-black border-t border-gray-200 dark:border-slate-800 transition-colors duration-500">
       <div className="max-w-6xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* About Section */}
-          <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Nithin Kumar</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              Full-stack developer passionate about creating innovative web solutions. 
-              Specializing in React, Node.js, and modern web technologies. 
-              Always eager to learn and take on new challenges.
-            </p>
-            <div className="flex gap-4">
-              {socials.map(social => (
-                <a 
-                  key={social.href} 
-                  href={social.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label={social.label}
-                  className="p-3 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-slate-700 transition-all duration-200 hover:scale-110"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-          </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map(link => (
-                <li key={link.name}>
-                  <a 
-                    href={link.href}
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Tech Stack */}
-          <div>
-            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Tech Stack</h4>
-            <div className="flex flex-wrap gap-2">
-              {techStack.map(tech => (
-                <span 
-                  key={tech}
-                  className="px-3 py-1 text-sm bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-slate-700"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* Contact Info */}
-        <div className="border-t border-gray-200 dark:border-slate-700 pt-8 mb-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div className="border-t border-gray-200 dark:border-slate-700 pt-6 sm:pt-8 mb-6 sm:mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
             <div>
-              <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Email</h5>
+              <h5 className="font-semibold text-gray-900 dark:text-white mb-1 sm:mb-2 text-sm sm:text-base">Email</h5>
               <a 
                 href="mailto:nithinkumar1813483@gmail.com"
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
                 nithinkumar1813483@gmail.com
               </a>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Location</h5>
-              <p className="text-gray-600 dark:text-gray-300">Hyderabad, India</p>
+              <h5 className="font-semibold text-gray-900 dark:text-white mb-1 sm:mb-2 text-sm sm:text-base">Phone</h5>
+              <a 
+                href="tel:+916301234567"
+                className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              >
+                +91 6301234567
+              </a>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Availability</h5>
-              <p className="text-gray-600 dark:text-gray-300">Open to opportunities</p>
+              <h5 className="font-semibold text-gray-900 dark:text-white mb-1 sm:mb-2 text-sm sm:text-base">Availability</h5>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">Open to opportunities</p>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-200 dark:border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 text-center">
+        <div className="border-t border-gray-200 dark:border-slate-700 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 md:gap-4 text-center">
           <div className="text-gray-600 dark:text-gray-400 text-center md:text-left">
-            <p className="text-lg font-semibold">&copy; {new Date().getFullYear()} Nithin Kumar. All rights reserved.</p>
-            <p className="text-sm mt-1">Built with <span className="text-red-500">❤️</span> using React & Tailwind CSS</p>
+            <p className="text-sm sm:text-lg font-semibold">&copy; {new Date().getFullYear()} Nithin Kumar. All rights reserved.</p>
+            <p className="text-xs sm:text-sm mt-1">Built with <span className="text-red-500">❤️</span> using React & Tailwind CSS</p>
           </div>
           
-          <div className="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
             <a 
               href="#hero" 
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
