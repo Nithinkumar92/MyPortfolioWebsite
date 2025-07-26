@@ -10,10 +10,16 @@ export default function Contact() {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      // for local await axios.post('http://localhost:5001/api/contact', form);
-      const local = 'http://localhost:5001/api/contact'
-      const url = 'https://myportfoliobackend-epy0.onrender.com';
-      await axios.post(url, form)
+      // Easy switch between local and production
+      const localUrl = 'http://localhost:5001/api/contact';
+      const productionUrl = 'https://myportfoliobackend-epy0.onrender.com/api/contact';
+      
+      // Change this line to switch between environments:
+      // For local development: use localUrl
+      // For production: use productionUrl
+      const apiUrl = productionUrl; // Change to localUrl for local development
+      
+      await axios.post(apiUrl, form)
       setStatus('Message sent!');
       setForm({ name: '', email: '', message: '' });
     } catch (err) {
