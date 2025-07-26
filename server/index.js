@@ -8,10 +8,20 @@ const nodemailer = require('nodemailer');
 dotenv.config();
 
 const app = express();
-// CORS configuration for both local and production
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://myportfoliowebsite-pegf.onrender.com'
+];
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://myportfoliowebsite-pegf.onrender.com'],
-  methods: ['GET', 'POST', 'OPTIONS'],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['POST', 'GET'],
   allowedHeaders: ['Content-Type'],
   credentials: true
 }));
