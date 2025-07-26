@@ -8,7 +8,7 @@ export default function HeroSection() {
     await loadFull(main);
   };
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center text-center py-16 overflow-hidden">
+    <section id="hero" className="relative min-h-[90vh] flex flex-col items-center justify-center text-center py-16 overflow-hidden">
       {/* 70% transparent gradient overlays */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none block dark:hidden"
         style={{
@@ -141,4 +141,4 @@ export default function HeroSection() {
       </motion.div>
     </section>
   );
-} ``
+}

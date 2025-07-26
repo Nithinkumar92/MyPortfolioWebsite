@@ -22,27 +22,7 @@ const projects = [
     link: 'https://fullstack-chat-me-webapp.onrender.com',
     github: 'https://github.com/Nithinkumar92/FullStack_Chat_Me_webapp.git',
   },
-  {
-    title: 'Flash Card Game',
-    desc: 'A simple flash card memory game built using Python for learning and fun.',
-    tech: ['Python', 'Tkinter'],
-    link: 'https://github.com/Nithinkumar92/flash_card_game.git',
-    github: 'https://github.com/Nithinkumar92/flash_card_game.git',
-  },
-  {
-    title: 'Snake Game',
-    desc: 'A classic snake game recreated using Python and Turtle graphics.',
-    tech: ['Python', 'Turtle'],
-    link: 'https://github.com/Nithinkumar92/python-snake-game.git',
-    github: 'https://github.com/Nithinkumar92/python-snake-game.git',
-  },
-  {
-    title: 'Pomodoro Timer',
-    desc: 'A productivity-focused Pomodoro timer app built with Python.',
-    tech: ['Python', 'Tkinter'],
-    link: 'https://github.com/Nithinkumar92/pomodoro-start.git',
-    github: 'https://github.com/Nithinkumar92/pomodoro-start.git',
-  },
+ 
   {
     title: 'Turtle Crossing Game',
     desc: 'A fun Python game where a turtle tries to cross a busy road.',
@@ -54,7 +34,7 @@ const projects = [
     title: 'Pong Game',
     desc: 'A multiplayer Pong game made using Python and the Turtle library.',
     tech: ['Python', 'Turtle'],
-    link: 'https://github.com/Nithinkumar92/pong-game-by-python.git',
+    
     github: 'https://github.com/Nithinkumar92/pong-game-by-python.git',
   },
   {
@@ -82,7 +62,7 @@ const projects = [
     title: 'Amazon Price Notifier Bot',
     desc: 'A Python-based bot that scrapes Amazon to find best value products under a target price and sends them to Telegram.',
     tech: ['Python', 'BeautifulSoup', 'Requests', 'Telegram Bot API', 'Automation'],
-    link: '#',
+    
     github: 'https://github.com/Nithinkumar92/Telegramautomationdeals.git',
   }
 ];
