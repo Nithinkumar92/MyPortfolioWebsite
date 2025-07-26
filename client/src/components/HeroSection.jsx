@@ -87,7 +87,7 @@ export default function HeroSection() {
         transition={{ duration: 1.2 }}
       >
         <motion.img
-          src="https://drive.google.com/file/d/1_BvV0J3ROs9hJnO6ZvD4dulLi1_NaU-B/view?usp=sharing"
+          src="/src/assets/profile3.jpg"
           alt="Profile"
           className="w-40 h-40 rounded-full border-4 border-white shadow-xl object-cover mb-8"
           whileHover={{ scale: 1.04 }}
