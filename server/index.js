@@ -8,8 +8,24 @@ const nodemailer = require('nodemailer');
 dotenv.config();
 
 const app = express();
+// CORS configuration for both local and production
+const allowedOrigins = [
+  'http://localhost:5173', // Local development
+  'https://myportfoliowebsite-pegf.onrender.com', // Production frontend
+  'https://myportfoliowebsite.vercel.app' // Vercel deployment (if you use it)
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['POST', 'GET'],
   allowedHeaders: ['Content-Type'],
   credentials: true
@@ -24,6 +40,15 @@ const messageSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 const Message = mongoose.model('Message', messageSchema);
+
+// Health check route
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    environment: NODE_ENV 
+  });
+});
 
 // Contact route
 app.post('/api/contact', async (req, res) => {
@@ -53,7 +78,16 @@ app.post('/api/contact', async (req, res) => {
 
 const PORT = process.env.PORT || 5001;
 const MONGO_URI = process.env.MONGO_URI;
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
+console.log(`Environment: ${NODE_ENV}`);
+console.log(`Port: ${PORT}`);
+console.log(`Allowed origins:`, allowedOrigins);
 
 mongoose.connect(MONGO_URI)
-  .then(() => app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`)))
+  .then(() => app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`📧 Email service: ${process.env.EMAIL_USER ? 'Configured' : 'Not configured'}`);
+    console.log(`🗄️  MongoDB: Connected`);
+  }))
   .catch(err => console.error('MongoDB connection error:', err));
