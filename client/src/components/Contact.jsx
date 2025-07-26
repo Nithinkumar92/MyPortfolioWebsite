@@ -11,7 +11,8 @@ export default function Contact() {
     setStatus('Sending...');
     try {
       // for local await axios.post('http://localhost:5001/api/contact', form);
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, form)
+      const url = 'https://myportfoliobackend-epy0.onrender.com';
+      await axios.post(url, form)
       setStatus('Message sent!');
       setForm({ name: '', email: '', message: '' });
     } catch (err) {
