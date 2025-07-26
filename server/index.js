@@ -9,28 +9,12 @@ dotenv.config();
 
 const app = express();
 // CORS configuration for both local and production
-const allowedOrigins = [
-  'http://localhost:5173', // Local development
-  'https://myportfoliowebsite-pegf.onrender.com', // Production frontend
-  'https://my-portfolio-website-ten-woad.vercel.app' // Vercel deployment (if you use it)
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['POST', 'GET'],
+  origin: ['http://localhost:5173', 'https://myportfoliowebsite-pegf.onrender.com'],
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
   credentials: true
 }));
-app.options('*', cors());
 app.use(express.json());
 
 // MongoDB model
