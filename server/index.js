@@ -12,7 +12,7 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173', // Local development
   'https://myportfoliowebsite-pegf.onrender.com', // Production frontend
-  'https://myportfoliowebsite.vercel.app' // Vercel deployment (if you use it)
+  'https://my-portfolio-website-ten-woad.vercel.app' // Vercel deployment (if you use it)
 ];
 
 app.use(cors({
@@ -54,8 +54,19 @@ app.get('/api/health', (req, res) => {
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
   if (!name || !email || !message) return res.status(400).json({ error: 'All fields required' });
+  
   try {
+    // Save to database
     await Message.create({ name, email, message });
+    console.log('✅ Message saved to database');
+    
+    // Check if email credentials are configured
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('❌ Email credentials not configured');
+      return res.status(500).json({ error: 'Email service not configured' });
+    }
+    
+    // Create email transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -63,16 +74,42 @@ app.post('/api/contact', async (req, res) => {
         pass: process.env.EMAIL_PASS
       }
     });
-    await transporter.sendMail({
+    
+    // Verify transporter
+    await transporter.verify();
+    console.log('✅ Email transporter verified');
+    
+    // Send email
+    const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      subject: 'New Contact Message',
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-    });
+      subject: 'New Contact Message from Portfolio',
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: `
+        <h3>New Contact Message</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+        <p><small>Sent from your portfolio website</small></p>
+      `
+    };
+    
+    await transporter.sendMail(mailOptions);
+    console.log('✅ Email sent successfully');
+    
     res.status(201).json({ message: 'Message sent successfully' });
   } catch (err) {
-    console.error('Contact route error:', err);
-    res.status(500).json({ error: 'Server error', details: err.message });
+    console.error('❌ Contact route error:', err);
+    console.error('Error details:', {
+      message: err.message,
+      code: err.code,
+      command: err.command
+    });
+    res.status(500).json({ 
+      error: 'Server error', 
+      details: err.message,
+      code: err.code 
+    });
   }
 });
 
