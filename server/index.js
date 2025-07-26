@@ -10,7 +10,8 @@ dotenv.config();
 const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://myportfoliowebsite-pegf.onrender.com'
+  'https://myportfoliowebsite-pegf.onrender.com',
+  'https://my-portfolio-website-ten-woad.vercel.app'
 ];
 
 app.use(cors({
