@@ -25,7 +25,7 @@ const socials = [
     ) 
   },
   { 
-    href: 'https://twitter.com/yourusername', 
+    href: 'https://x.com/Nithin_Gurajala', 
     label: 'Twitter', 
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -34,7 +34,7 @@ const socials = [
     ) 
   },
   { 
-    href: 'https://instagram.com/yourusername', 
+    href: 'https://www.instagram.com/nithinkumar_gurajala/', 
     label: 'Instagram', 
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -82,7 +82,7 @@ export default function Footer() {
                 href="tel:+916301234567"
                 className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
-                +91 6301234567
+                +91 9959292473
               </a>
             </div>
             <div>

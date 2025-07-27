@@ -194,14 +194,14 @@ export default function VideoEditing() {
         {/* Enhanced Modal */}
         {selected && (
           <motion.div 
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg p-2 sm:p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelected(null)}
           >
             <motion.div 
-              className="bg-white dark:bg-slate-900 rounded-2xl md:rounded-3xl shadow-2xl w-full max-w-5xl max-h-[95vh] overflow-hidden"
+              className="bg-white dark:bg-slate-900 rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl w-full max-w-4xl sm:max-w-5xl max-h-[98vh] sm:max-h-[95vh] overflow-hidden"
               initial={{ scale: 0.8, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.8, opacity: 0, y: 50 }}
@@ -209,52 +209,52 @@ export default function VideoEditing() {
             >
               {/* Close Button */}
               <button 
-                className="absolute top-3 right-3 md:top-6 md:right-6 z-10 w-10 h-10 md:w-12 md:h-12 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors backdrop-blur-sm border border-white/20"
+                className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-6 md:right-6 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors backdrop-blur-sm border border-white/20"
                 onClick={() => setSelected(null)}
               >
-                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
               
               {/* Video Player */}
-              <div className="w-full h-[50vh] sm:h-[60vh] md:h-[75vh] min-h-[300px] relative">
+              <div className="w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[75vh] min-h-[250px] sm:min-h-[300px] relative">
                 <iframe
                   src={`https://drive.google.com/file/d/${selected.driveId}/preview`}
                   allow="autoplay"
-                  className="w-full h-full rounded-t-2xl md:rounded-t-3xl"
+                  className="w-full h-full rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl"
                   title={selected.title}
                   allowFullScreen
                 ></iframe>
               </div>
               
               {/* Video Info */}
-              <div className="p-4 sm:p-6 md:p-10 overflow-y-auto max-h-[45vh]">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
+              <div className="p-3 sm:p-4 md:p-6 lg:p-10 overflow-y-auto max-h-[58vh] sm:max-h-[45vh]">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 sm:gap-4 md:gap-6">
                   <div className="flex-1">
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
+                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
                       {selected.title}
                     </h3>
-                    <p className="text-sm sm:text-base md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                       {selected.description}
                     </p>
                   </div>
                   <div className="flex flex-row md:flex-col items-start md:items-end gap-2 md:gap-3">
-                    <span className="px-3 py-1 md:px-6 md:py-3 bg-blue-500 text-white text-xs sm:text-sm md:text-lg font-bold rounded-full">
+                    <span className="px-2 py-1 sm:px-3 sm:py-1 md:px-6 md:py-3 bg-blue-500 text-white text-xs sm:text-sm md:text-lg font-bold rounded-full">
                       {selected.category}
                     </span>
-                    <span className="px-3 py-1 md:px-6 md:py-3 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-lg font-bold rounded-full">
+                    <span className="px-2 py-1 sm:px-3 sm:py-1 md:px-6 md:py-3 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-lg font-bold rounded-full">
                       {selected.duration}
                     </span>
                   </div>
                 </div>
                 
                 {/* Tools */}
-                <div className="flex flex-wrap gap-2 md:gap-4 mt-4 md:mt-6">
+                <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mt-3 sm:mt-4 md:mt-6">
                   {selected.tools.map(tool => (
                     <span 
                       key={tool} 
-                      className="px-3 py-1 md:px-6 md:py-3 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 rounded-full text-xs sm:text-sm md:text-lg font-medium border border-gray-200 dark:border-slate-700"
+                      className="px-2 py-1 sm:px-3 sm:py-1 md:px-6 md:py-3 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 rounded-full text-xs sm:text-sm md:text-lg font-medium border border-gray-200 dark:border-slate-700"
                     >
                       {tool}
                     </span>
