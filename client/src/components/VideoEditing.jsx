@@ -194,14 +194,14 @@ export default function VideoEditing() {
         {/* Enhanced Modal */}
         {selected && (
           <motion.div 
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg p-2 sm:p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-2 sm:p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelected(null)}
           >
             <motion.div 
-              className="bg-white dark:bg-slate-900 rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl w-full max-w-4xl sm:max-w-5xl max-h-[98vh] sm:max-h-[95vh] overflow-hidden"
+              className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl w-full max-w-3xl sm:max-w-4xl md:max-w-5xl max-h-[95vh] overflow-hidden border border-white/20 dark:border-slate-700/20"
               initial={{ scale: 0.8, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.8, opacity: 0, y: 50 }}
@@ -218,7 +218,7 @@ export default function VideoEditing() {
               </button>
               
               {/* Video Player */}
-              <div className="w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[75vh] min-h-[250px] sm:min-h-[300px] relative">
+              <div className="w-full h-[35vh] sm:h-[40vh] md:h-[45vh] min-h-[200px] sm:min-h-[250px] relative">
                 <iframe
                   src={`https://drive.google.com/file/d/${selected.driveId}/preview`}
                   allow="autoplay"
@@ -229,21 +229,21 @@ export default function VideoEditing() {
               </div>
               
               {/* Video Info */}
-              <div className="p-3 sm:p-4 md:p-6 lg:p-10 overflow-y-auto max-h-[58vh] sm:max-h-[45vh]">
+              <div className="p-3 sm:p-4 md:p-6 overflow-y-auto max-h-[60vh] sm:max-h-[55vh] md:max-h-[50vh]">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 sm:gap-4 md:gap-6">
                   <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
                       {selected.title}
                     </h3>
-                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                       {selected.description}
                     </p>
                   </div>
-                  <div className="flex flex-row md:flex-col items-start md:items-end gap-2 md:gap-3">
-                    <span className="px-2 py-1 sm:px-3 sm:py-1 md:px-6 md:py-3 bg-blue-500 text-white text-xs sm:text-sm md:text-lg font-bold rounded-full">
+                  <div className="flex flex-row md:flex-col items-start md:items-end gap-2 md:gap-3 md:min-w-[120px]">
+                    <span className="px-2 py-1 sm:px-3 sm:py-1 md:px-4 md:py-2 bg-blue-500 text-white text-xs sm:text-sm md:text-base font-bold rounded-full">
                       {selected.category}
                     </span>
-                    <span className="px-2 py-1 sm:px-3 sm:py-1 md:px-6 md:py-3 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-lg font-bold rounded-full">
+                    <span className="px-2 py-1 sm:px-3 sm:py-1 md:px-4 md:py-2 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base font-bold rounded-full">
                       {selected.duration}
                     </span>
                   </div>
@@ -254,7 +254,7 @@ export default function VideoEditing() {
                   {selected.tools.map(tool => (
                     <span 
                       key={tool} 
-                      className="px-2 py-1 sm:px-3 sm:py-1 md:px-6 md:py-3 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 rounded-full text-xs sm:text-sm md:text-lg font-medium border border-gray-200 dark:border-slate-700"
+                      className="px-2 py-1 sm:px-3 sm:py-1 md:px-4 md:py-2 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 rounded-full text-xs sm:text-sm md:text-base font-medium border border-gray-200 dark:border-slate-700"
                     >
                       {tool}
                     </span>
